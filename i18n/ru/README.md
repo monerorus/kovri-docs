@@ -81,11 +81,11 @@ $ pacman -Syu
 
 ### Make and install
 
-** *Не* используйте скачанный zip файл с github: используйте только рекурсивное клонирование **
+***Не* используйте скачанный zip файл с github: используйте только рекурсивное клонирование**
 
 ```bash
 $ git clone --recursive https://github.com/monero-project/kovri
-$ cd kovri && make release  # see the Makefile for all build options
+$ cd kovri && make release  # все опции сборки можно посмотреть в файле Makefile
 $ make install
 ```
 
@@ -106,12 +106,12 @@ $ docker build -t kovri:latest .
 - Любую дополнительную документацию на вашем языке, вы можете найти в репозитории [kovri-docs](https://github.com/monero-project/kovri-docs/)
 - [Moneropedia](https://getmonero.org/resources/moneropedia/kovri.html) рекомендуется всем пользователям и разработчикам
 - [Система общественного финансирования](https://forum.getmonero.org/8/funding-required) для получения финансирования вашей работы, [внесите свое предложение](https://forum.getmonero.org/7/open-tasks/2379/forum-funding-system-ffs-sticky)
-- [build.getmonero.org](https://build.getmonero.org/) или monero-build.i2p подробная информация о сборке
-- [repo.getmonero.org](https://repo.getmonero.org/monero-project/kovri) или monero-repo.i2p альтернативные репозитории GitHub с non-push доступом
+- [build.getmonero.org](https://build.getmonero.org/) или monero-build.i2p подробная информация по сборке
+- [repo.getmonero.org](https://repo.getmonero.org/monero-project/kovri) или monero-repo.i2p альтернативные GitHub репозитории  с с non-push доступом
 - Смотри также [kovri-site](https://github.com/monero-project/kovri-site) и [monero/kovri meta](https://github.com/monero-project/meta)
 
 ## Отчет об уязвимости
-- Наш [Процесс реагирования на уязвимость](https://github.com/monero-project/meta/blob/master/VULNERABILITY_RESPONSE_PROCESS.md) и стимулирует оперативный поиск уязвимостей
+- Наш [Процесс реагирования на уязвимость](https://github.com/monero-project/meta/blob/master/VULNERABILITY_RESPONSE_PROCESS.md)  стимулирует оперативный поиск уязвимостей
 - Мы также есть на [HackerOne](https://hackerone.com/monero)
 
 ## Контакты и поддержка
@@ -119,7 +119,7 @@ $ docker build -t kovri:latest .
   - `#kovri` | Сообщество & Канал поддержки
   - `#kovri-dev` | Канал разработки
 - [Monero Mattermost](https://mattermost.getmonero.org/)
-- [Monero Slack](https://monero.slack.com/) (предварительно, попросите приглашение в IRC)
+- [Monero Slack](https://monero.slack.com/) (предварительно, попросите приглашение в кналах IRC)
 - [Monero StackExchange](https://monero.stackexchange.com/)
 - [Reddit /r/Kovri](https://www.reddit.com/r/Kovri/)
 - Twitter: [@getkovri](https://twitter.com/getkovri)
@@ -131,4 +131,4 @@ $ docker build -t kovri:latest .
     - PGP Key fingerprint: 1218 6272 CD48 E253 9E2D  D29B 66A7 6ECF 9144 09F1
 
 ## Пожертвования
-- Посетите нашу [Страницу Пожертвований](https://getmonero.org/getting-started/donate/) чтобы помочь Kovri своим пожертвованием
+- Посетите нашу [Страницу Пожертвований](https://getmonero.org/getting-started/donate/) чтобы помочь Kovri Вашими пожертвованиями
