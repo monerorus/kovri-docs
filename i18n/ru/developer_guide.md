@@ -1,90 +1,90 @@
-# Guidelines
-- We aim for complete C++11/14 compliance; please use this to your advantage
-- Please use the standard library and dependency libraries whenever possible
+# Соглашения
+- Мы стремимся к полному соблюдению соглашений C++11/14; пожалуйста, соблюдайте их для вашей же пользы
+- Пожалуйста, используйте стандартную библиотеку и библиотеки зависимостей, всегда когда это возможно
 
-## Vulnerability Response
-- Our [Vulnerability Response Process](https://github.com/monero-project/meta/blob/master/VULNERABILITY_RESPONSE_PROCESS.md) encourages responsible disclosure
-- We are also available via [HackerOne](https://hackerone.com/monero)
+## Реакция на уязвимость
+- Наш [Процесс реагирования на уязвимость](https://github.com/monero-project/meta/blob/master/VULNERABILITY_RESPONSE_PROCESS.md)  стимулирует оперативный поиск уязвимостей
+- Мы также есть на [HackerOne](https://hackerone.com/monero)
 
-## Style
-1. Read [Google's C++ Style Guide](https://google.github.io/styleguide/cppguide.html) (particularly for non-formatting style reference)
-   - If bash programming, read [Google's Shell Style Guide](https://github.com/google/styleguide/blob/gh-pages/shell.xml)
-2. For files containing only new work, run [clang-format](http://clang.llvm.org/docs/ClangFormat.html) with ```-style=file``` (which uses our provided [.clang-format](https://github.com/monero-project/kovri/blob/master/.clang-format))
+## Стиль
+1. Прочтите [Руководство по стилю C++ от Google](https://google.github.io/styleguide/cppguide.html) (в частности справку о не-форматированном стиле)
+   - Если программируете на bash, прочтите [Google's Shell Style Guide](https://github.com/google/styleguide/blob/gh-pages/shell.xml)
+2. Для файлов состоящих только из новой работы, выполните [clang-format](http://clang.llvm.org/docs/ClangFormat.html) с ```-style=file``` (который использует предоставленный нами [.clang-format](https://github.com/monero-project/kovri/blob/master/.clang-format))
 ```bash
 $ cd kovri/ && clang-format -i -style=file src/path/to/my/file
 ```
-3. For files with mixed (existing + new) work, run [clang-format](http://clang.llvm.org/docs/ClangFormat.html) selectively over only lines directly related to the new work.
-   - See [vim](http://clang.llvm.org/docs/ClangFormat.html#vim-integration) and [emacs](http://clang.llvm.org/docs/ClangFormat.html#emacs-integration) documentation for examples of configuring keybindings for `clang-format` plugins.
-4. Run [cpplint](https://github.com/google/styleguide/tree/gh-pages/cpplint) (which uses our provided [CPPLINT.cfg](https://github.com/monero-project/kovri/blob/master/CPPLINT.cfg)) to catch any issues that were missed by clang-format
+3. Для файлов со смешанной работой (существующей и новой), выполните [clang-format](http://clang.llvm.org/docs/ClangFormat.html) выборочно только по строкам относящимся к новой работе.
+   - Смотрите [vim](http://clang.llvm.org/docs/ClangFormat.html#vim-integration) и [emacs](http://clang.llvm.org/docs/ClangFormat.html#emacs-integration) документацию для примеров конфигурации сочетания клавиш для `clang-format` плагинов.
+4. Выполните [cpplint](https://github.com/google/styleguide/tree/gh-pages/cpplint) (который использует предоставленные нами [CPPLINT.cfg](https://github.com/monero-project/kovri/blob/master/CPPLINT.cfg)) чтобы отловить любые проблемы пропущенные clang-format'ом
 ```bash
 $ cd kovri/ && cpplint src/path/to/my/file && [edit file manually to apply fixes]
 ```
 
 ### Plugins
 
-- Vim integration
+- Vim интеграция
   - [clang-format](http://clang.llvm.org/docs/ClangFormat.html#vim-integration)
   - [clang-format ubuntu 16.04 vim workaround](http://stackoverflow.com/questions/39490082/clang-format-not-working-under-gvim)
   - [cpplint.vim](https://github.com/vim-syntastic/syntastic/blob/master/syntax_checkers/cpp/cpplint.vim)
-- Emacs integration
+- Emacs интеграция
   - [clang-format](http://clang.llvm.org/docs/ClangFormat.html#emacs-integration) + [clang-format.el](https://llvm.org/svn/llvm-project/cfe/trunk/tools/clang-format/clang-format.el)
   - [flycheck-google-cpplint.el](https://github.com/flycheck/flycheck-google-cpplint)
 
-### Amendments to Google's proposed C++ style
+### Поправки к предлагаемому стилю C ++ от Google
 
-- Avoid prepended mixed-case ```k``` and MACRO_TYPE for all constants
-- Use Doxygen three-slash ```/// C++ comments``` when documenting for Doxygen
-- Try to document all your work for Doxygen as you progress
-- If anonymity is a concern, try to blend in with a present contributor's style
+- Избегайте префикс в смешанном случае (mixed-case) ```k``` и MACRO_TYPE для всех констант
+- Используйте три слеша ```/// C++ комментарии``` при документировании для Doxygen
+- Старайтесь документировать всю работу в формате Doxygen по мере выполнения
+- Если анонимность вызывает беспокойство, попробуйте имитировать стиль изначального автора
 
-### Optional Checks
+### Дополнительные проверки
 1. [cppdep](https://github.com/rakhimov/cppdep)
-   for component dependency, physical insulation, and include checks.
-2. [cppcheck](https://github.com/danmar/cppcheck/) for static analysis
-   (complementary to Coverity).
-3. [lizard](https://github.com/terryyin/lizard) for code complexity checks.
+   для зависимости компонентов, физической изоляции и вложенных проверок.
+2. [cppcheck](https://github.com/danmar/cppcheck/) для статического анализа
+   (в дополнение к Coverity).
+3. [lizard](https://github.com/terryyin/lizard) для проверки сложности кода.
 
-## Sending your work
-To contribute your work, please proceed with the following:
+## Отправка вашей работы
+Чтобы внести свой вклад выполните следующее:
 
-1. [Fork](https://help.github.com/articles/fork-a-repo/) Kovri
-2. Review the style section of this document
-3. Create a [topic branch](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
-   - We currently do not have any tags as we are in Alpha. For now, you can base your work off of master
-4. Make changes
-   - Commits should be [atomic](https://en.wikipedia.org/wiki/Atomic_commit#Atomic_commit_convention) when possible and diffs should be easy to read
-   - Please try to not mix formatting fixes with non-formatting commits
-5. Be courteous of the git-log
-   - Commit title should prepend class or aspect of project. For example, "HTTPProxy: implement User-Agent scrubber. Fixes #193." or "Garlic: fix uninitialized padding in ElGamalBlock"
-   - Commit messages should be verbose by default, consisting of a short subject line (50 chars max), a blank line, and detailed explanatory text as separate paragraph(s) - unless the title alone is self-explanatory
-   - If a particular commit references another issue, please add a reference. For example; *See #123*, or *Fixes #123*. This will help us resolve tickets when we merge into `master`
-   - If a particular commit is rebased after collaboration within a pull-request, please reference the pull-request number within the commit message. For example; *References #123*
-6. [**Sign**](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work) your commit(s) and, if you are a new contributor, open a new pull-request which adds your PGP key to our repository (see contrib)
-7. Send a pull-request to branch `master`
-   - The body of the pull request should contain an accurate description of what the patch does and should also provide justification/reasoning for the patch (when appropriate). You should include references to any discussions such as other tickets or chats on IRC
+1. Скопируйте ([Fork](https://help.github.com/articles/fork-a-repo/)) Kovri
+2. Ознакомьтесь с разделом "Стиль", это го документа
+3. Создайте [topic branch](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+   - В настоящее время у нас нет никаких тегов, так как мы в стадии Alpha. Пока вы можете основывать свою работу в ветке master
+4. Внесите изменения
+   - Коммиты должны быть [атомарными](https://en.wikipedia.org/wiki/Atomic_commit#Atomic_commit_convention) когда это возможно и Различия(diffs) должны быть легко читаемы
+   - Пожалуйста постарайтесь не смешивать правки форматирования и другие коммиты
+5. Будьте внимательны к git-log
+   - Заголовок коммита должен начинаться с класса или аспекта проекта. Например, "HTTPProxy: implement User-Agent scrubber. Fixes #193." или "Garlic: fix uninitialized padding in ElGamalBlock".
+   - Комментарии к коммиту должны быть подробными по умолчанию, состоящими и короткой строки темы (50  символов максимум), пустой строки и детального пояснительного текста разбитого на абзацы - кроме случаев когда тема является достаточным и очевидным объяснением.
+   - Если конкретный коммит связан с проблемой(issue), пожалуйста добавьте ссылку. Например "See #123", или "Fixes #123". Это поможет нам разрешить тикеты(tickets) при объединение(merge) в  ```master```.
+   - Если конкретный коммит меняет основу (rebase) после совместной работы в pull-request, пожалуйста укажите номер pull-request в комментарии к коммиту. Например, *References #123*
+6. [**Подпишите**](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work) ваш(и) коммит(ы) и если вы новый контрибьютор, откройте ноавй pull-request который добавит ваш PGP ключ в наш репозиторий (Смотри "Содействие")
+7. Отправьте pull-request в ветку `master`
+   - Содержание pull request должно содержать точное описание того, что делает исправление и предоставлять обоснование\доводы этого исправления (при необходимости). Вы должны включить ссылки на любые обсуждения, такие как другие тикеты (issues) или чаты в IRC.
 
-## Proposals
-To contribute a proposal, please review our [open issues](https://github.com/monero-project/kovri/issues) for existing proposals. If what you propose is not there, then [open a new issue](https://github.com/monero-project/kovri/issues/new).
+## Предложения (Proposals)
+Перед внесением предложения, пожалуйста просмотрите [открытые проблемы](https://github.com/monero-project/kovri/issues) на предмет существующих предложений. Если вашего предложения там нет, то [создайте новое](https://github.com/monero-project/kovri/issues/new).
 
-Even though our C4 dictates that we merge everything, we ask that you open a proposal for the following reasons:
+Несмотря на то, что наш C4 диктует нам объединять(merge) все, мы просим вас создать предложение, по следующим причинам:
 
-1. A proposal opens up communication
-2. A proposal shows that the contributor respects the input of all project collaborators
-3. A proposal allows seamless collaborator input in an open forum
-4. A proposal saves time if a collaborator is working on a similar feature/issue
-5. A proposal prevents catastrophes and mishaps or allows collaborators to prepare for catastrophes and mishaps
+1. Предложение начинает диалог
+2. Предложение показывает, что контрибьютор уважает вклад всех участников проекта
+3. Предложение позволяет участнику прозрачно войти в открытое публичное обсуждение
+4. Предложение сберегает время, если участник работает над похожей фукцией\проблемой
+5. Предложение предотвращает катастрофы и казусы или позволяет участникам подготовится к катастрофам и казусам.
 
-*Not* opening a proposal will *not* prevent you from contributing; we will merge what you PR - but a proposal is highly recommended.
+*Не* открытие предложения(proposal) *не* помешает вам внести вклад; мы объеденим(merge) ваш PR - но предложение настоятельно рекомендуется.
 
 ## TODO's
-- Do a quick search in the codebase for ```TODO(unassigned):``` and/or pick a ticket and start patching!
-- If you create a TODO, assign it to yourself or write in ```TODO(unassigned):```
+- Сделайте беглый поиск в кодовой базе ```TODO(unassigned):``` и\или возьмите тикет в работу и начните исправление!
+- Если создаете TODO, назначьте его себе или напишите ```TODO(unassigned):```
 
 ## Fuzz testing
 
-From [reference](http://llvm.org/docs/LibFuzzer.html) : "LibFuzzer is under active development so you will need the current (or at least a very recent) version of the Clang compiler"
+Из [справки](http://llvm.org/docs/LibFuzzer.html) : "LibFuzzer находится в активной разработке поэтому вам понадобится текущая (или покрайнее мере очень свежая) версия компилятора Clang"
 
-Get a recent version of clang:
+Получить свежую версию clang:
 
 ```bash
 $ cd ~/ && mkdir TMP_CLANG && git clone https://chromium.googlesource.com/chromium/src/tools/clang TMP_CLANG/clang
@@ -92,19 +92,19 @@ $ ./TMP_CLANG/clang/scripts/update.py
 $ cd --
 ```
 
-Get libFuzzer:
+Получить libFuzzer:
 
 ```bash
 $ git clone https://chromium.googlesource.com/chromium/llvm-project/llvm/lib/Fuzzer contrib/Fuzzer
 ```
 
-Build kovri with fuzz testing enabled:
+Сборка kovri с включенным fuzz тестированием:
 
 ```bash
 $ PATH="~/third_party/llvm-build/Release+Asserts/bin:$PATH" CC=clang CXX=clang++ make fuzz-tests
 ```
 
-Usage (Example for RouterInfo):
+Использование (Пример для RouterInfo):
 
 ```bash
 mkdir RI_CORPUS MIN_RI_CORPUS
@@ -113,64 +113,64 @@ find ~/.kovri/core/network_database/ -name "router_info*" -exec cp {} RI_CORPUS 
 ./build/kovri-util fuzz --target=routerinfo -jobs=2 -workers=2 MIN_RI_CORPUS
 ```
 
-# Quality Assurance
+# Гаранития качества
 
-The following is a proposed model for QA workflow. While linear in nature, any phase can be worked on individually if needed - as long as all phases are eventually addressed.
+Ниже представлена предполагаемя модель рабочего процесса для QA. Поскольку процесс носит линейный характер любая фаза может быть обработана отдельно при необходимости - при условии, что все фазы в итоге будут пройдены.
 
-## Phase 1: Basic Review
+## Фаза 1: Базовый обзор (review)
 
-- Review open issues on our [Issue Tracker](https://github.com/monero-project/kovri/issues/)
-- Review our [Vulnerability Response Process](https://github.com/monero-project/meta/blob/master/VULNERABILITY_RESPONSE_PROCESS.md)
-- All code must adhere to our contributing guidelines
-- Note areas that need improving (mentally or in code)
-- Create TODO's and assign if possible
+- Просмотрите открытые проблемы в нашем [Issue Tracker](https://github.com/monero-project/kovri/issues/)
+- Просмотрите наш [Процесс реагирования на уязвимость(Vulnerability Response Process)](https://github.com/anonimal/meta/blob/master/VULNERABILITY_RESPONSE_PROCESS.md)
+- Весь код должен соответствовать нашим рекомендациям
+- Отметьте области, которые нуждаются в улучшении (умственно или в коде)
+- Создайте TODO и назначьте его, если возможно
 
-## Phase 2: Specification Review /  Implementation / Code Documentation
+## Фаза 2: Обзор спецификации /  Реализации / Документации кода
 
-- Complete specification review on a per module basis; e.g., Streaming, I2PControl, etc.
-  - Code must be in-line with essential parts of the specification that will maintain the same (or better) level of anonymity that java I2P provides
-  - Refactor/implement/patch when/where needed
-- Ensure C++11/14 compliant implementation
-  - Review phase 2 if needed
-- Resolve all related TODO's
-- Document code as much as possible with inline comments and Doxygen
-  - Code should be understood by novice to experienced coders
-  - Code should guide the reader to a better understanding of I2P
-    - I2P is very complex so our code should act as sovereign replacement of spec documentation and not simply as a supplement (this can be a tedious objective but very rewarding in terms of maintenance and software lifespan)
+- Полный обзор спецификации для каждого модуля; например, Streaming, I2PControl и т.д.
+  - Код должен быть в соответствии с основными частями спецификации, которые будут поддерживать тот же (или лучший) уровень анонимности, который предоставляет java I2P
+  - Рефакторинг/реализация/патч, когда/где это необходимо
+- Обеспечьте совместимость с C++ 11/14
+  - Рассмотрите фазу 2, если необходимо
+- Решите все связанные TODO
+- Документируйте код настолько, насколько это возможно с встроенными комментариями и Doxygen
+  - Код должен быть понятен начинающим и опытным программистам
+  - Код должен помочь читателю лучше понять I2P
+    - I2P очень сложен, поэтому наш код должен выступать в качестве превосходной замены документации спецификации, а не быть просто в качестве дополнения (это может быть утомительно, но очень полезно с точки зрения обслуживания и времени жизни програмного обеспечения)
 
-## Phase 3: Crypto Review / Security auditing
+## Фаза 3: Криптоанализ / Аудит безопасности
 
-- Ensure that crypto is up-to-date and properly implemented
-- Establish every vector for known exploitation
-  - Keep these vectors in mind when writing tests
-- Break Kovri every which-way possible
-  - Fix what you break
-- Always use trustworthy, well-written libraries when possible
-  - Avoid homebrewed, ad-hoc, *I'm sure I know better than the community* type of code
-- Seek a 2nd (or more) opinion(s) from colleagues before proceeding to next phase
+- Убедитесь, что криптография современная и правильно реализована
+- Обоснуйте каждый вектор для известной эксплуатации
+  - Учитывайте эти векторы при написании тестов
+- Нарушьте работу Kovri всеми возможными путями
+  - Исправьте то, что вы смогли поломать
+- Всегда используйте надежные, хорошо написанные библиотеки, если это возможно.
+  - Избегайте доморощенного, необоснованного, *Я уверен, что знаю лучше, чем сообщество* варианта кода
+- Ищите 2 (или более) мнения от коллег, прежде чем переходить к следующему этапу
 
-## Phase 4: Bug squashing / Tests / Profiling
+## Фаза 4: Bug squashing / Тесты / Профилирование
 
-- Resolve priority bugs/issues
-- Write unit-tests tests for every module
-  - Run tests. Run them again
-  - Full review of test results. Patch if needed. Refactor as necessary
-- Ensure that automation is running on a regular basis
+- Устранение приоритетных ошибок/проблем
+- Пишите unit-tests тесты для каждого модуля
+  - Запустите тесты. И еще раз
+  - Полный обзор результатов испытаний. При необходимости пропатчить (patch). Рефакторинг по мере необходимости
+- Убедитесь, что автоматизация работает на постоянной основе
   - valgrind, doxygen, clang-format
-  - Patch if needed, refactor as necessary
+  - При необходимости пропатчить (patch). Рефакторинг по мере необходимости
 
-## Phase 5: Confer
+## Фаза 5: Совещайтесь
 
-- Confer with colleagues and the community
-  - Conferring should be done publicly via ticket, meetings, and/or IRC
-- Accept all feedback and, in response, produce tangible results
-- If satisfied, proceed with next phase, else repeat this phase (or start from a previous phase)
+- Консультируйтесь с коллегами и сообществом
+  - Совещание должно быть публичным, через тикет, встречу и\или IRC
+- Примите все отзывы и дайте вразумительный ответ
+- Если это выполнено, выполните следующую фазу, иначе повторите эту фазу (или начните с предыдущей фазы)
 
-## Phase 6: Repeat the cycle from the beginning
+## Фаза 6: Повторите цикл с самого начала
 
-# [Code of Conduct (22/C4.1)](http://rfc.zeromq.org/spec:22)
+# [Правила поведения (22/C4.1)](http://rfc.zeromq.org/spec:22)
 
-## License
+## Лицензия
 
 Copyright (c) 2009-2015 Pieter Hintjens.
 
@@ -180,105 +180,105 @@ This Specification is distributed in the hope that it will be useful, but WITHOU
 
 You should have received a copy of the GNU General Public License along with this program; if not, see <http://www.gnu.org/licenses>.
 
-## Language
+## Язык
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.
+Слова "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", и "OPTIONAL" в этом документе должны быть интерпретированы как описано в RFC 2119.
 
-## Goals
+## Цели
 
-C4 is meant to provide a reusable optimal collaboration model for open source software projects. It has these specific goals:
+C4 означает предоставление многоразовой оптимальной модели взаимодействия для проектов с открытым исходным кодом. И имеет следующие специфичные цели:
 
-- To maximize the scale and diversity of the community around a project, by reducing the friction for new Contributors and creating a scaled participation model with strong positive feedbacks;
-- To relieve dependencies on key individuals by separating different skill sets so that there is a larger pool of competence in any required domain;
-- To allow the project to develop faster and more accurately, by increasing the diversity of the decision making process;
-- To support the natural life cycle of project versions from experimental through to stable, by allowing safe experimentation, rapid failure, and isolation of stable code;
-- To reduce the internal complexity of project repositories, thus making it easier for Contributors to participate and reducing the scope for error;
-- To enforce collective ownership of the project, which increases economic incentive to Contributors and reduces the risk of hijack by hostile entities.
+- Максимально маштабировать и разнообразить сообщество вокруг проекта, уменьшив сложность для новых контрибьюторов и расширив модель участия с положительными отзывами;
+- Освободить зависимости от ключевых лиц, выделив разные наборы навыков, чтобы в любой требуемой области существовал более широкий круг компетенций;
+- Позволить проекту развиваться быстрее и точнее, увеличивая разнообразие процесса принятия решений;
+- Поддерживать естественный жизненный цикл версий проекта от экспериментального до стабильного, позволяя безопасное экспериментирование, быстрый сбой и изоляцию стабильного кода;
+- Уменьшить внутреннюю сложность репозиториев проекта, тем самым облегчая участие контрибьюторов и уменьшая область для ошибок; 
+- Обеспечить коллективное владение проектом, что увеличивает экономический стимул для контрибьюторов и снижает риск похищения со стороны враждебных организаций.
 
-## Design
+## Дизайн
 
-### Preliminaries
+### Предварительные замечания
 
-- The project SHALL use the git distributed revision control system.
-- The project SHALL be hosted on github.com or equivalent, herein called the "Platform".
-- The project SHALL use the Platform issue tracker.
-- The project SHOULD have clearly documented guidelines for code style.
-- A "Contributor" is a person who wishes to provide a patch, being a set of commits that solve some clearly identified problem.
-- A "Maintainer" is a person who merges patches to the project. Maintainers are not developers; their job is to enforce process.
-- Contributors SHALL NOT have commit access to the repository unless they are also Maintainers.
-- Maintainers SHALL have commit access to the repository.
-- Everyone, without distinction or discrimination, SHALL have an equal right to become a Contributor under the terms of this contract.
+- Проект ДОЛЖЕН(SHALL) использовать систему управления распределенными версиями git.
+- Проект ДОЛЖЕН(SHALL) быть размещен на github.com или его эквиваленте, называемом здесь «Платформа».
+- Проект ДОЛЖЕН(SHALL) использовать  issue tracker платформы.
+- Проекту СЛЕДУЕТ(SHOULD) иметь четко документированные рекомендации по стилю кода.
+- «Участник(контрибьютор)» - это человек, который хочет предоставить патч, являющийся набором коммитов, которые решают некоторые четко определенные проблемы.
+- "Сопровождающий(Maintainer)" - это человек, который объединяет(merge) патчи в проекте. Сопровождающие не являются разработчиками; их работа заключается в обеспечении соблюдения процесса.
+- Участники(контрибьюторы) НЕ ДОЛЖНЫ(SHALL NOT) иметь commit доступ к репозиторию, если они не являются также Сопровождающими(Maintainers). 
+- Сопровождающие(Maintainers) ДОЛЖНЫ(SHALL) иметь commit доступ к репозиторию
+- Любой, без различия или дискриминации, ДОЛЖЕН(SHALL) иметь равное право стать Участником(контрибьютором) в соответствии с условиями этого контракта.
 
-### Licensing and Ownership
+### Лицензирование и собственность
 
-- The project SHALL use a share-alike license, such as the GPLv3 or a variant thereof (LGPL, AGPL), or the MPLv2.
-- All contributions to the project source code ("patches") SHALL use the same license as the project.
-- All patches are owned by their authors. There SHALL NOT be any copyright assignment process.
-- The copyrights in the project SHALL be owned collectively by all its Contributors.
-- Each Contributor SHALL be responsible for identifying themselves in the project Contributor list.
+- Проект ДОЛЖЕН(SHALL) использовать лицензию на основе общего доступа, такую как GPLv3 или ее вариант (LGPL, AGPL) или MPLv2.
+- Все вклады в исходный код проекта («патчи») ДОЛЖНЫ(SHALL) использовать ту же лицензию, что и проект.
+- Все патчи принадлежат их авторам. Там НЕ ДОЛЖНО(SHALL NOT) быть никакого процесса назначения авторских прав.
+- Авторские права в проекте ДОЛЖНЫ(SHALL) принадлежать всем его контрибьюторам.
+- Каждый участник ДОЛЖЕН(SHALL) быть ответственным за идентификацию себя в списке участников проекта.
 
-### Patch Requirements
+### Требования к патчу
 
-- Maintainers and Contributors MUST have a Platform account and SHOULD use their real names or a well-known alias.
-- A patch SHOULD be a minimal and accurate answer to exactly one identified and agreed problem.
-- A patch MUST adhere to the code style guidelines of the project if these are defined.
-- A patch MUST adhere to the "Evolution of Public Contracts" guidelines defined below.
-- A patch SHALL NOT include non-trivial code from other projects unless the Contributor is the original author of that code.
-- A patch MUST compile cleanly and pass project self-tests on at least the principle target platform.
-- A patch commit message SHOULD consist of a single short (less than 50 character) line summarizing the change, optionally followed by a blank line and then a more thorough description.
-- A "Correct Patch" is one that satisfies the above requirements.
+- Сопровождающие и участники ОБЯЗАНЫ(MUST) иметь учетную запись платформы и ДОЛЖНЫ(SHOULD) использовать свои настоящие имена или известный псевдоним.
+- Патч ДОЛЖЕН(SHOULD) быть минимальным и точным ответом ровно на одну идентифицированную и согласованную проблему.
+- Патч ОБЯЗАН(MUST) придерживаться правил стиля кода проекта, если они определены.
+- Патч ОБЯЗАН(MUST) придерживаться руководящих принципов «Эволюция общественных контрактов», определенных ниже.
+- Патч НЕ ДОЛЖЕН(SHALL NOT) включать нетривиальный код из других проектов, если только контрибьютор не является изначальным автором этого кода.
+- Патч ОБЯЗАН(MUST) компилироваться и проходить самотестирование проекта, по крайней мере, на основной целевой платформе.
+- Комментарию коммита патча СЛЕДУЕТ(SHOULD) состоять из одной короткой (менее 50 символов) строки, суммирующей изменение, опционально сопровождаемую пустой строкой, а затем более подробным описанием.
+- «Правильный патч» - это тот, который удовлетворяет вышеуказанным требованиям.
 
-### Development Process
+### Процесс разработки
 
-- Change on the project SHALL be governed by the pattern of accurately identifying problems and applying minimal, accurate solutions to these problems.
-- To request changes, a user SHOULD log an issue on the project Platform issue tracker.
-- The user or Contributor SHOULD write the issue by describing the problem they face or observe.
-- The user or Contributor SHOULD seek consensus on the accuracy of their observation, and the value of solving the problem.
-- Users SHALL NOT log feature requests, ideas, suggestions, or any solutions to problems that are not explicitly documented and provable.
-- Thus, the release history of the project SHALL be a list of meaningful issues logged and solved.
-- To work on an issue, a Contributor SHALL fork the project repository and then work on their forked repository.
-- To submit a patch, a Contributor SHALL create a Platform pull request back to the project.
-- A Contributor SHALL NOT commit changes directly to the project.
-- If the Platform implements pull requests as issues, a Contributor MAY directly send a pull request without logging a separate issue.
-- To discuss a patch, people MAY comment on the Platform pull request, on the commit, or elsewhere.
-- To accept or reject a patch, a Maintainer SHALL use the Platform interface.
-- Maintainers SHOULD NOT merge their own patches except in exceptional cases, such as non-responsiveness from other Maintainers for an extended period (more than 1-2 days).
-- Maintainers SHALL NOT make value judgments on correct patches.
-- Maintainers SHALL merge correct patches from other Contributors rapidly.
-- The Contributor MAY tag an issue as "Ready" after making a pull request for the issue.
-- The user who created an issue SHOULD close the issue after checking the patch is successful.
-- Maintainers SHOULD ask for improvements to incorrect patches and SHOULD reject incorrect patches if the Contributor does not respond constructively.
-- Any Contributor who has value judgments on a correct patch SHOULD express these via their own patches.
-- Maintainers MAY commit changes to non-source documentation directly to the project.
+- Изменения в проекте ДОЛЖНЫ(SHALL) регулироваться шаблоном точной идентификации проблем и применения минимальных точных решений этих проблем.
+- Чтобы запросить изменения, пользователю СЛЕДУЕТ(SHOULD) зарегистрировать проблему в трее на платформе.
+- Пользователю или Контрибьютору СЛЕДУЕТ(SHOULD) написать проблему, описав проблему, с которой они сталкиваются или наблюдают.
+- Пользователю или контрибьютору СЛЕДУЕТ(SHOULD) стремиться к консенсусу относительно точности их наблюдения и ценности решения проблемы.
+- Пользователи НЕ ДОЛЖНЫ(SHALL NOT) регистрировать запросы функций, идеи, предложения или любые решения проблем, которые явно не документированы и не доказуемы.
+- Таким образом, история выпуска проекта ДОЛЖНА(SHALL) быть списком значимых проблем, регистрируемых и решаемых.
+- Чтобы работать над проблемой, участник ДОЛЖЕН(SHALL) скопировать(fork) репозиторий проекта, а затем работать в своей копии репозитория.
+- Чтобы отправить патч, участник ДОЛЖЕН(SHALL) создать pull request Платформы обратно в проект.
+- Участник НЕ ДОЛЖЕН(SHALL NOT) вносить изменения непосредственно в проект.
+- Если Платформа реализует  pull requests в качестве проблем(issues), Участник МОЖЕТ(MAY) непосредственно отправить pull request без регистрации отдельной проблемы(issue).
+- Чтобы обсудить патч, люди МОГУТ(MAY) комментировать pull request платформы, commit или в любом другом месте.
+- Чтобы принять или отклонить патч, Maintainer ДОЛЖЕН(SHALL) использовать интерфейс платформы.
+- Сопровождающим НЕ СЛЕДУЕТ(SHOULD NOT) объединять(merge) свои собственные исправления, за исключением особых случаев, таких как невосприимчивость других Сопровождающих в течение длительного периода (более 1-2 дней).
+- Сопровождающие НЕ ДОЛЖНЫ(SHALL NOT) делать оценочные суждения относительно правильных патчей.
+- Сопровождающие ДОЛЖНЫ(SHALL) объединять(merge) кореектные исправления от других участников.
+- Участник МОЖЕТ(MAY) отметить проблему как «Готовую» после pull request для этой проблемы.
+- Пользователь, создавший проблему, ДОЛЖЕН(SHOULD) закрыть проблему после проверки исправления.
+- Сопровождающим СЛЕДУЕТ(SHOULD) просить исправлять неправильные патчи и СЛЕДУЕТ(SHOULD) отклонять неправильные патчи, если Участник не отвечает конструктивно.
+- Любой участник, у которого есть оценочные суждения на правильном патче, ДОЛЖЕН(SHOULD) выражать их через свои собственные патчи.
+- Сопровождающие МОГУТ(MAY) вносить изменения в документацию, не являющуюся исходным кодом, непосредственно в проект.
 
-### Creating Stable Releases
+### Создание стабильных выпусков
 
-- The project SHALL have one branch ("master") that always holds the latest in-progress version and SHOULD always build.
-- The project SHALL NOT use topic branches for any reason. Personal forks MAY use topic branches.
-- To make a stable release someone SHALL fork the repository by copying it and thus become maintainer of this repository.
-- Forking a project for stabilization MAY be done unilaterally and without agreement of project maintainers.
-- A stabilization project SHOULD be maintained by the same process as the main project.
-- A patch to a stabilization project declared "stable" SHALL be accompanied by a reproducible test case.
+- Проект ДОЛЖЕН(SHALL) иметь одну ветку ("master"), которая всегда содержит последнюю версию, и которая всегда ДОЛЖНА(SHOULD) собираться без ошибок.
+- Проект НЕ ДОЛЖЕН(SHALL NOT) использовать тему(topic) веток по какой-либо причине. Личные копии(fork) МОГУТ использовать тему веток.
+- Чтобы сделать стабильную версию, кто-то ДОЛЖЕН(SHALL) скопировать(fork) репозиторий, скопировав его и тем самым став обслуживающим(maintainer) этого репозитория. 
+- Копирование проекта для стабилизации МОЖЕТ(MAY) быть сделано в одностороннем порядке и без согласования с разработчиками проекта
+- Проект стабилизации ДОЛЖЕН(SHOULD) поддерживаться таким же процессом, что и основной проект.
+- Патч к проекту стабилизации, объявленный "stable", ДОЛЖЕН(SHALL) сопровождаться воспроизводимым тестовым вариантом.
 
-### Evolution of Public Contracts
+### Изменение общественных контрактов
 
-- All Public Contracts (APIs or protocols) SHALL be documented.
-- All Public Contracts SHOULD have space for extensibility and experimentation.
-- A patch that modifies a stable Public Contract SHOULD not break existing applications unless there is overriding consensus on the value of doing this.
-- A patch that introduces new features to a Public Contract SHOULD do so using new names.
-- Old names SHOULD be deprecated in a systematic fashion by marking new names as "experimental" until they are stable, then marking the old names as "deprecated".
-- When sufficient time has passed, old deprecated names SHOULD be marked "legacy" and eventually removed.
-- Old names SHALL NOT be reused by new features.
-- When old names are removed, their implementations MUST provoke an exception (assertion) if used by applications.
+- Все публичные контракты (API или протоколы) ДОЛЖНЫ(SHALL) документироваться.
+- Всем публичным контрактам СЛЕДУЕТ(SHOULD) иметь место для расширяемости и экспериментов.
+- Патч, который изменяет стабильный публичный контракт, НЕ ДОЛЖЕН(SHOULD NOT) нарушать существующие приложения, если не будет преобладающего консенсуса относительно ценности этого.
+- Патч, который вводит новые функции в открытый контракт, ДОЛЖЕН(SHOULD) делать это с использованием новых имен.
+- Старые имена ДОЛЖНЫ(SHOULD) устаревать систематически, отмечая новые имена как "experimental", пока они не станут стабильными, а затем отмечают старые имена как "deprecated".
+- Когда прошло достаточно времени, старые устаревшие имена ДОЛЖНЫ(SHOULD) быть отмечены  "legacy" и в конечном итоге удалены.
+- Старые имена НЕ ДОЛЖНЫ(SHALL NOT) повторно использоваться новыми функциями.
+- Когда старые имена удаляются, их реализации ДОЛЖНЫ(MUST) провоцировать исключение (утверждение), если оно используется приложениями.
 
-### Project Administration
+### Управление проектами
 
-- The project founders SHALL act as Administrators to manage the set of project Maintainers.
-- The Administrators SHALL ensure their own succession over time by promoting the most effective Maintainers.
-- A new Contributor who makes a correct patch SHALL be invited to become a Maintainer.
-- Administrators MAY remove Maintainers who are inactive for an extended period of time, or who repeatedly fail to apply this process accurately.
-- Administrators SHOULD block or ban "bad actors" who cause stress and pain to others in the project. This should be done after public discussion, with a chance for all parties to speak. A bad actor is someone who repeatedly ignores the rules and culture of the project, who is needlessly argumentative or hostile, or who is offensive, and who is unable to self-correct their behavior when asked to do so by others.
+- Учредители проекта ДОЛЖНЫ(SHALL) выступать в качестве Администраторов для управления составом Сопровождающих(Maintainers)
+- Администраторы ДОЛЖНЫ(SHALL) обеспечить свою собственную преемственность в течении времени, продвигая наиболее эффективных Сопровождающих(Maintainers).
+- Новый Котрибьютор, который делает правильный патч, ДОЛЖЕН(SHALL) быть приглашен стать Сопровождающим(Maintainer).
+- Администраторы МОГУТ(MAY) удалять Сопровождающих(Maintainers), которые неактивны в течение длительного периода времени, или которые неоднократно не соблюдали строго этот процесс.
+- Администраторы ДОЛЖНЫ(SHOULD) блокировать или банить «плохих актеров», которые вызывают стресс и боль у других в проекте. Это должно быть сделано после публичного обсуждения, с возможностью для всех сторон высказаться. Плохой актер - это тот, кто неоднократно игнорирует правила и культуру проекта, который бесполезно аргументирует или враждебен, или кто оскорбителен, и который не может самостоятельно исправлять свое поведение, когда его просят сделать это другие.
 
-# Governance Process
+# Процесс управления
 
 ![Governance Process](https://getmonero.org/blog/assets/2015-year-in-review/governance-process.jpg)
