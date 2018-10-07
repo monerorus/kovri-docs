@@ -52,7 +52,8 @@ $ cd "C:\Program Files\Kovri" ; ./kovri.exe --help
 Например:
 
 - Файл закрытых ключей: `client/keys/your-keys.dat`
-- Публичный [Base32](https://getmonero.org/resources/moneropedia/base32-address)/[Base64](https://getmonero.org/resources/moneropedia/base64-address) адрес: `client/keys/your-keys.dat.txt`
+- Публичный [Base32](https://getmonero.org/resources/moneropedia/base32-address): `client/keys/your-keys.dat.b32.txt`
+- Публичный [Base64](https://getmonero.org/resources/moneropedia/base64-address): `client/keys/your-keys.dat.b64.txt`
 
 **Примечание: см. kovri.conf, чтобы найти папку для Linux/OSX/Windows**
 
@@ -93,7 +94,6 @@ $ cd build/ && ./kovri
 - Почитать больше о Kovri в [Moneropedia](https://getmonero.org/resources/moneropedia/kovri).
 - Открыть запрос на доработку или сообщить об ошибке в наш [issues tracker](https://github.com/monero-project/kovri/issues)
 - Узнать больше о сети I2P [сайте java I2P](https://geti2p.net/en/docs)
-
 
 # Варианты с использованием контейнеров
 
@@ -148,8 +148,7 @@ KOVRI_PORT=42085 && sudo docker run -p 127.0.0.1:4446:4446 -p 127.0.0.1:6669:666
 ```
 
 ### Пользовательские настройки 
-
+Где в  `./kovri-settings/` содержится `kovri.conf` и `tunnels.conf`.
 ```bash
 KOVRI_PORT=42085 && sudo docker run -p 127.0.0.1:4446:4446 -p 127.0.0.1:6669:6669 -p $KOVRI_PORT --env KOVRI_PORT=$KOVRI_PORT -v kovri-settings:/home/kovri/.kovri/config:ro geti2p/kovri
 ```
-Где в  `./kovri-settings/` содержится `kovri.conf` и `tunnels.conf`.
